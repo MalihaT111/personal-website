@@ -1,0 +1,314 @@
+:root {
+  /* ═══════════════════════════════════════════
+     CORE PALETTE — Retro-Futurist Editorial
+  ═══════════════════════════════════════════ */
+  
+  /* Primary */
+  --bg: #EDE3CA;           /* Warm paper cream */
+  --text: #2E2430;         /* Ink navy */
+  --dark: #3E2A42;         /* Deep plum-black */
+
+  /* Accents */
+  --accent: #9C4F38;       /* Rusted rose */
+  --second: #CFA574;       /* Gold ochre */
+  --tert: #4d3b56e7;         /* Muted lavender */
+
+  /* Neo-Noir Glow (use sparingly) */
+  --glow-blue: #7CA7FF;
+  --glow-purple: #A88BFF;
+  --glow-cyan: #7FF7FF;
+
+  /* Neutrals */
+  --black: #171317;
+  --grey-1: #C9C4B8;
+  --grey-2: #A49F95;
+
+  /* ═══════════════════════════════════════════
+     SPACING SCALE (4-based)
+  ═══════════════════════════════════════════ */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* ═══════════════════════════════════════════
+     TYPOGRAPHY SCALE (1.2 modular)
+  ═══════════════════════════════════════════ */
+  --text-caption: 0.825rem;
+  --text-body: clamp(1rem, 3.2vw, 1rem);
+  --text-body-lg: 1.125rem;
+  --text-h3: 1.5rem;
+  --text-h2: clamp(1.6rem, 3.2vw, 2rem);
+
+  --text-h1: 3rem;
+  --text-display: clamp(3rem, 8vw, 4rem);
+
+  /* Paper texture */
+  --paper-grain-opacity: .9;
+}
+
+/* ═══════════════════════════════════════════
+   BASE STYLES
+═══════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: 
+    linear-gradient(135deg, #F0E7D3 0%, #E8DFC8 100%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+
+/* ═══════════════════════════════════════════
+   PAPER TEXTURE OVERLAY
+═══════════════════════════════════════════ */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: url("/paper-grain.jpeg");
+  background-size: cover;
+  opacity: var(--paper-grain-opacity);
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+
+/* Vignette layer */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════════
+   TYPOGRAPHY
+═══════════════════════════════════════════ */
+
+h1, h2, h3, .poster-title {
+  font-family: var(--font-serif);
+  color: var(--dark);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--text-display);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: var(--text-h2);
+  font-weight: 500;
+}
+
+h3 {
+  font-size: var(--text-h3);
+  font-weight: 500;
+}
+
+p {
+  line-height: 1.6;
+  max-width: 60ch;
+}
+
+/* Microtext — editorial Japanese style */
+.microtext {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tert);
+}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: var(--text-body);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 12px rgba(168, 139, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--tert);
+  border: 1.5px solid var(--tert);
+}
+
+.btn-secondary:hover {
+  border-color: var(--glow-blue);
+  color: var(--glow-blue);
+}
+
+.btn-dark {
+  background: var(--dark);
+  color: var(--bg);
+  border: none;
+}
+
+.btn-dark:hover {
+  box-shadow: 0 0 12px rgba(168, 139, 255, 0.3);
+}
+
+/* ═══════════════════════════════════════════
+   LINKS
+═══════════════════════════════════════════ */
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+}
+
+a:hover {
+  color: var(--tert);
+}
+
+/* Editorial underline animation */
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--glow-purple);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════
+   CARDS
+═══════════════════════════════════════════ */
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--grey-1);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: var(--space-6);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: rotate(0.5deg) translateY(-2px);
+  border-left-color: var(--tert);
+  box-shadow: 0 8px 24px rgba(46, 36, 48, 0.1);
+}
+
+/* ═══════════════════════════════════════════
+   TAGS / PILLS
+═══════════════════════════════════════════ */
+
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  background: var(--second);
+  color: var(--bg);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+.tag-outline {
+  background: transparent;
+  border: 1px solid var(--tert);
+  color: var(--tert);
+}
+
+/* ═══════════════════════════════════════════
+   UTILITY CLASSES
+═══════════════════════════════════════════ */
+
+.text-accent { color: var(--accent); }
+.text-tert { color: var(--tert); }
+.text-second { color: var(--second); }
+.text-dark { color: var(--dark); }
+.text-muted { color: var(--grey-2); }
+
+.bg-dark { background: var(--dark); }
+.bg-accent { background: var(--accent); }
+
+/* Glow effects (use sparingly) */
+.glow-purple { box-shadow: 0 0 20px rgba(168, 139, 255, 0.3); }
+.glow-blue { box-shadow: 0 0 20px rgba(124, 167, 255, 0.3); }
+
+/* ═══════════════════════════════════════════
+   SECTION LAYOUTS
+═══════════════════════════════════════════ */
+
+.section {
+  padding: var(--space-4) var(--space-6);
+  position: relative;
+  z-index: 10;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+
+
+
+strong {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
+
+  /* Desktop size */
+  font-size: clamp(1.5rem, 2.5vw + 1rem, 3rem);
+  line-height: 1.15;
+}
+

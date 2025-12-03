@@ -1,0 +1,110 @@
+.navWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Centered, constrained pill */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  /* ░░ Poster aesthetic ░░ */
+  background: var(--tert);
+
+  border-radius: 9999px;
+  border: 2px solid #00000022;
+
+  /* ░░ width matches marquee ░░ */
+  max-width: 1200px;        /* ← SAME WIDTH AS YOUR MARQUEE */
+  width: 100%;              /* responsive */
+  margin: 0 auto;
+
+
+}
+
+.item {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bg);              /* instead of #f1ede4 */
+  text-decoration: none;
+}
+
+.item:hover {
+  color: var(--second);          /* gold ochre */
+  opacity: 1;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--bg);   /* match nav text */
+}
+
+
+/* ░░ RESPONSIVE BEHAVIOR ░░ */
+
+@media (max-width: 768px) {
+  .nav {
+    gap: 2rem;
+    width: 95%;
+  }
+  
+  .item {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    gap: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .item {
+    font-size: 0.8rem;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    gap: 1rem;
+    padding: 0.5rem 0.8rem;
+    width: 98%;
+  }
+
+  .item {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-width: 1.5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav {
+    gap: 0.75rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .item {
+    font-size: 0.65rem;
+  }
+  
+  .dot {
+    display: none;
+  }
+}
