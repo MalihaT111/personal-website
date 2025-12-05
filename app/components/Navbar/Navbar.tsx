@@ -7,24 +7,24 @@ export default function Navbar() {
     <nav className={styles.nav}>
     <div className={styles.dot} />
 
-    <Link href="#about" className={styles.item}>
+    <Link href="/" className={styles.item}>
         Home
     </Link>
     <div className={styles.dot} />
 
-      <Link href="#about" className={styles.item}>
+      <Link href="/projects" className={styles.item}>
         Projects
       </Link>
 
       <div className={styles.dot} />
 
-      <Link href="#projects" className={styles.item}>
+      <Link href="/resume" className={styles.item}>
         Resume
       </Link>
 
       <div className={styles.dot} />
 
-      <Link href="#contact" className={styles.item}>
+      <Link href="/contact" className={styles.item}>
         Contact
       </Link>
       <div className={styles.dot} />

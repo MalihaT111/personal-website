@@ -8,7 +8,7 @@ interface MarqueeProps {
   repeat?: number;
 }
 
-export default function Marquee({ text, speed = 1, repeat = 12 }: MarqueeProps) {
+export default function Marquee({ text, speed = .6, repeat = 12 }: MarqueeProps) {
   const trackRef = useRef<HTMLDivElement>(null);
   const stars = ["✦", "✧"];
 

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import "./home.css";
-import Marquee from "./components/Marquee";
+import Marquee from "./components/Marquee/Marquee";
 import Navbar from "./components/Navbar/Navbar";
 import About from "./components/About/About";
 import Collage from "./components/Collage/Collage";
